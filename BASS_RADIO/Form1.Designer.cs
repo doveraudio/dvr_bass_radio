@@ -43,6 +43,7 @@
             this.btnNext = new System.Windows.Forms.Button();
             this.btnsave = new System.Windows.Forms.Button();
             this.listViewPlaylists = new System.Windows.Forms.ListView();
+            this.columnURL = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnLoad = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -173,11 +174,20 @@
             // 
             // listViewPlaylists
             // 
+            this.listViewPlaylists.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnURL});
             this.listViewPlaylists.Location = new System.Drawing.Point(18, 236);
             this.listViewPlaylists.Name = "listViewPlaylists";
             this.listViewPlaylists.Size = new System.Drawing.Size(254, 189);
             this.listViewPlaylists.TabIndex = 17;
             this.listViewPlaylists.UseCompatibleStateImageBehavior = false;
+            this.listViewPlaylists.View = System.Windows.Forms.View.Details;
+            this.listViewPlaylists.ItemActivate += new System.EventHandler(this.listViewPlaylists_ItemActivate);
+            this.listViewPlaylists.SelectedIndexChanged += new System.EventHandler(this.listViewPlaylists_SelectedIndexChanged);
+            // 
+            // columnURL
+            // 
+            this.columnURL.Text = "URL";
             // 
             // btnLoad
             // 
@@ -193,7 +203,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 437);
+            this.ClientSize = new System.Drawing.Size(357, 437);
             this.Controls.Add(this.btnLoad);
             this.Controls.Add(this.listViewPlaylists);
             this.Controls.Add(this.btnsave);
@@ -236,6 +246,7 @@
         private System.Windows.Forms.Button btnsave;
         private System.Windows.Forms.ListView listViewPlaylists;
         private System.Windows.Forms.Button btnLoad;
+        private System.Windows.Forms.ColumnHeader columnURL;
     }
 }
 

@@ -198,6 +198,28 @@ namespace utility
             return MasterList.URLs.ElementAt(_current);
         }
 
+        public WebBassItem findTitle(string title)
+        {
+            WebBassItem temp = new WebBassItem();
+            temp.URL = "nsi";
+            temp.Title = "nsi";
+            temp.Stream = 0;
+            Predicate<WebBassItem> TitleFinder = (WebBassItem item) => { return item.Title == title; };
+            temp = MasterList.URLs.Find(TitleFinder);
+            return temp;
+        }
+
+        public WebBassItem findURL(string url)
+        {
+            WebBassItem temp = new WebBassItem();
+            temp.URL = "nsi";
+            temp.Title = "nsi";
+            temp.Stream = 0;
+            Predicate<WebBassItem> URLFinder = (WebBassItem item) => { return item.URL == url; };
+            temp = MasterList.URLs.Find(URLFinder);
+            return temp;
+        }
+
         public WebBassItem next()
         {
             _current += 1; return current();
