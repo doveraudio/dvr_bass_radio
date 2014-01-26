@@ -1,0 +1,8 @@
+http://servers.internet-radio.com/tools/playlistgenerator/?u=http://uk2.internet-radio.com:30991/listen.pls&t=.pls
+
+http://www.kissfm.ro/podcasturi/
+http://ice.cream.org/~dg/mixes/Mr_Disjunkt_03-06.mp3
+http://www.trilogysoundcrew.com/mixes/TESTER%20-%20NOW%20WHO%20GWAN%20TEST.mp3
+https://ia600309.us.archive.org/28/items/SRmix_002/Gabbenni_Amenassi_-_GabbaRaggaMashBreakGrindCore_Ragga_Jungle_BreakCore_Gabber_MashUp_Grindcore.mp3
+
+http://www.neurosense.eu/mixes/Technoid_Community_-_Neurophunked_021.mp3

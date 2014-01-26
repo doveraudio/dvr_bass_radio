@@ -1,0 +1,10 @@
+C:\Users\Dover\Documents\Visual Studio 2010\Projects\audio\BASS_RADIO\BASS_RADIO\bin\Debug\BASS_RADIO.exe
+C:\Users\Dover\Documents\Visual Studio 2010\Projects\audio\BASS_RADIO\BASS_RADIO\bin\Debug\BASS_RADIO.pdb
+C:\Users\Dover\Documents\Visual Studio 2010\Projects\audio\BASS_RADIO\BASS_RADIO\bin\Debug\Bass.Net.dll
+C:\Users\Dover\Documents\Visual Studio 2010\Projects\audio\BASS_RADIO\BASS_RADIO\bin\Debug\Bass.Net.xml
+C:\Users\Dover\Documents\Visual Studio 2010\Projects\audio\BASS_RADIO\BASS_RADIO\obj\x86\Debug\BASS_RADIO.csprojResolveAssemblyReference.cache
+C:\Users\Dover\Documents\Visual Studio 2010\Projects\audio\BASS_RADIO\BASS_RADIO\obj\x86\Debug\BASS_RADIO.Form1.resources
+C:\Users\Dover\Documents\Visual Studio 2010\Projects\audio\BASS_RADIO\BASS_RADIO\obj\x86\Debug\BASS_RADIO.Properties.Resources.resources
+C:\Users\Dover\Documents\Visual Studio 2010\Projects\audio\BASS_RADIO\BASS_RADIO\obj\x86\Debug\BASS_RADIO.csproj.GenerateResource.Cache
+C:\Users\Dover\Documents\Visual Studio 2010\Projects\audio\BASS_RADIO\BASS_RADIO\obj\x86\Debug\BASS_RADIO.exe
+C:\Users\Dover\Documents\Visual Studio 2010\Projects\audio\BASS_RADIO\BASS_RADIO\obj\x86\Debug\BASS_RADIO.pdb
