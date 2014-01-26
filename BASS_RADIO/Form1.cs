@@ -93,6 +93,14 @@ namespace BASS_RADIO
             txtArtist.Text = myRadio.Artist;
         }
 
+        private void btnNext_Click(object sender, EventArgs e)
+        {
+            myRadio.next(mySites.next().URL);
+            mySites.current().Stream = myRadio.stream;
+            txtTrackname.Text = myRadio.Title;
+            txtArtist.Text = myRadio.Artist;
+        }
+
         private void btnsave_Click(object sender, EventArgs e)
         {
             mySites.save();
@@ -105,14 +113,6 @@ namespace BASS_RADIO
             {
                 guiAddTrack(track);
             }
-        }
-
-        private void btnNext_Click(object sender, EventArgs e)
-        {
-            myRadio.next(mySites.next().URL);
-            mySites.current().Stream = myRadio.stream;
-            txtTrackname.Text = myRadio.Title;
-            txtArtist.Text = myRadio.Artist;
         }
     }
 }

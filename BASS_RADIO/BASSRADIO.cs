@@ -65,8 +65,8 @@ namespace BASS_RADIO
         {
             if (url != "")
             {
+                URL = url;
                 stream = Bass.BASS_StreamCreateURL(url, 0, BASSFlag.BASS_STREAM_STATUS, null, IntPtr.Zero);
-
                 streams.Add(stream);
                 return stream;
             }
@@ -78,13 +78,17 @@ namespace BASS_RADIO
 
         public int next(string url)
         {
+            StopAll();
             Channel(url);
+            Play();
             return stream;
         }
 
         public int previous(string url)
         {
+            StopAll();
             Channel(url);
+            Play();
             return stream;
         }
 
