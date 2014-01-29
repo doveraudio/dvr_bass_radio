@@ -142,8 +142,7 @@ namespace BASS_RADIO
         private void listViewPlaylists_ItemActivate(object sender, EventArgs e)
         {
             myRadio.URL = listViewPlaylists.SelectedItems[0].Tag.ToString();
-            myRadio.Stop();
-            myRadio.Play();
+            Play();
             txtTrackname.Text = myRadio.Title;
             txtArtist.Text = myRadio.Artist;
         }
