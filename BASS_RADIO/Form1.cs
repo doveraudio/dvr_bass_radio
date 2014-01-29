@@ -5,6 +5,8 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using utility;
 
@@ -14,6 +16,22 @@ namespace BASS_RADIO
     {
         private BassRadio myRadio;
         private WebBassLibrary mySites;
+
+        public Task<bool> Play()
+        {
+            return Task.Factory.StartNew<bool>(myRadio.Play);
+        }
+
+        public Task<string> GetCurrentStream()
+        {
+            return Task.Factory.StartNew<string>(_current_stream);
+        }
+
+        public string _current_stream()
+        {
+            myRadio.URL = mySites.current().URL;
+            return mySites.current().URL;
+        }
 
         public Form1()
         {
@@ -35,17 +53,17 @@ namespace BASS_RADIO
                 track.URL = myRadio.defaultUrl();
                 track.Title = "DNBHeaven";
                 mySites.add(track);
-                myRadio.URL = mySites.current().URL;
+                GetCurrentStream();
                 guiAddTrack(track);
             }
             else
             {
-                myRadio.URL = mySites.current().URL;
+                GetCurrentStream();
             }
             myRadio.Stop();
+            GetCurrentStream();
+            Play();
 
-            myRadio.Play();
-            mySites.current().Stream = myRadio.stream;
             txtTrackname.Text = myRadio.Title;
             txtArtist.Text = myRadio.Artist;
         }
@@ -75,23 +93,29 @@ namespace BASS_RADIO
 
         private void btnStop_Click(object sender, EventArgs e)
         {
-            myRadio.StopAll();
+            myRadio.Stop();
         }
 
         private void btnPrevious_Click(object sender, EventArgs e)
         {
-            myRadio.previous(mySites.previous().URL);
-            mySites.current().Stream = myRadio.stream;
+            mySites.previous();
+            GetCurrentStream();
             txtTrackname.Text = myRadio.Title;
             txtArtist.Text = myRadio.Artist;
+            txtTitle.Text = mySites.current().Title;
+            txtUrl.Text = mySites.current().URL;
+            Play();
         }
 
         private void btnNext_Click(object sender, EventArgs e)
         {
-            myRadio.next(mySites.next().URL);
-            mySites.current().Stream = myRadio.stream;
+            mySites.next();
+            GetCurrentStream();
             txtTrackname.Text = myRadio.Title;
             txtArtist.Text = myRadio.Artist;
+            txtTitle.Text = mySites.current().Title;
+            txtUrl.Text = mySites.current().URL;
+            Play();
         }
 
         private void btnsave_Click(object sender, EventArgs e)
@@ -122,6 +146,10 @@ namespace BASS_RADIO
             myRadio.Play();
             txtTrackname.Text = myRadio.Title;
             txtArtist.Text = myRadio.Artist;
+        }
+
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        {
         }
     }
 }

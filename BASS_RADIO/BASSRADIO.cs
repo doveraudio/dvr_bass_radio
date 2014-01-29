@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Xml.Serialization;
 using Un4seen.Bass;
 using Un4seen.Bass.AddOn.Tags;
@@ -63,10 +65,10 @@ namespace BASS_RADIO
 
         public int Channel(string url)
         {
-            if (url != "")
+            if (_url != "")
             {
-                URL = url;
-                stream = Bass.BASS_StreamCreateURL(url, 0, BASSFlag.BASS_STREAM_STATUS, null, IntPtr.Zero);
+                URL = _url;
+                stream = Bass.BASS_StreamCreateURL(_url, 0, BASSFlag.BASS_STREAM_STATUS, null, IntPtr.Zero);
                 streams.Add(stream);
                 return stream;
             }
@@ -78,7 +80,7 @@ namespace BASS_RADIO
 
         public int next(string url)
         {
-            StopAll();
+            Stop();
             Channel(url);
             Play();
             return stream;
@@ -86,7 +88,7 @@ namespace BASS_RADIO
 
         public int previous(string url)
         {
-            StopAll();
+            Stop();
             Channel(url);
             Play();
             return stream;
@@ -97,7 +99,9 @@ namespace BASS_RADIO
             if (Started)
             {
                 if (playing) { Stop(); }
-                Bass.BASS_ChannelPlay(this.Channel(_url), false);
+                Channel(_url);
+
+                Bass.BASS_ChannelPlay(stream, false);
                 playing = true;
                 return true;
             }
@@ -116,6 +120,7 @@ namespace BASS_RADIO
                 foreach (int stream in streams)
                 {
                     Bass.BASS_ChannelStop(stream);
+                    Bass.BASS_StreamFree(stream);
                 }
                 return true;
             }
@@ -129,7 +134,7 @@ namespace BASS_RADIO
                 playing = false;
 
                 Bass.BASS_ChannelStop(this.stream);
-
+                Bass.BASS_StreamFree(this.stream);
                 return true;
             }
             else { playing = false; return false; }

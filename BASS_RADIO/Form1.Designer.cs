@@ -45,6 +45,7 @@
             this.listViewPlaylists = new System.Windows.Forms.ListView();
             this.columnURL = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnLoad = new System.Windows.Forms.Button();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.SuspendLayout();
             // 
             // btnPlay
@@ -199,6 +200,10 @@
             this.btnLoad.UseVisualStyleBackColor = true;
             this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click);
             // 
+            // backgroundWorker1
+            // 
+            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -247,6 +252,7 @@
         private System.Windows.Forms.ListView listViewPlaylists;
         private System.Windows.Forms.Button btnLoad;
         private System.Windows.Forms.ColumnHeader columnURL;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }
 
